@@ -1,0 +1,5 @@
+.env
+vllm/*
+qdrant/*
+open-webui/*
+.venv

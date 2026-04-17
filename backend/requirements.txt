@@ -1,0 +1,7 @@
+uvicorn[standard]
+fastapi
+httpx
+beautifulsoup4
+trafilatura
+sentence-transformers
+qdrant-client
