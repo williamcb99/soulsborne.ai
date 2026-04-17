@@ -5,7 +5,6 @@ services:
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
-      - HUGGING_FACE_HUB_TOKEN=${HF_TOKEN}
     ports:
       - "8000:8000"
     volumes:

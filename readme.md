@@ -1,6 +1,6 @@
 # soulsborne.ai RAG Stack
 
-soulsborne.ai is a local Retrieval-Augmented Generation (RAG) hobby project focused on Soulsborne game knowledge (Dark Souls and Bloodborne), built with:
+soulsborne.ai is a local Retrieval-Augmented Generation (RAG) hobby project focused on Soulsborne game knowledge (Dark Souls, Bloodborne, Elden Ring), built with:
 
 - FastAPI backend for ingestion and chat orchestration
 - Qdrant as the vector database
@@ -12,7 +12,7 @@ The backend exposes OpenAI-style endpoints and injects retrieved context from Qd
 ## Architecture
 
 1. Content ingestion
-- Crawl pages from a sitemap (default: Bloodborne Fextralife sitemap)
+- Crawl pages from sitemap only (default: Bloodborne Fextralife sitemap)
 - Extract clean text and metadata from HTML
 - Chunk text, embed chunks, and upsert into Qdrant
 
@@ -42,14 +42,14 @@ The backend exposes OpenAI-style endpoints and injects retrieved context from Qd
 
 - Docker and Docker Compose
 - NVIDIA GPU with compatible drivers (vLLM service is configured with `runtime: nvidia`)
-- Hugging Face token with access to your target model
+- **OPTIONALLY:** Hugging Face token with access to your target model
 
 ## Environment Variables
 
 **IMPORTANT: Create a root `.env` file (same folder as `docker-compose.yml`) with at least:**
 
 ```env
-# Required for vLLM model download
+# Optional, depending on chosen vLLM model to download
 HF_TOKEN=your_hugging_face_token
 
 # Model served by vLLM
