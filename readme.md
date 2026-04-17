@@ -27,9 +27,9 @@ The backend exposes OpenAI-style endpoints and injects retrieved context from Qd
 
 - `docker-compose.yml`: Orchestrates all services
 - `backend/`: FastAPI app, crawler, ingestion pipeline, and query service
-- `qdrant/`: Persisted Qdrant data directory
-- `vllm/`: Persisted model cache for vLLM
-- `open-webui/`: Open WebUI data and cache
+- `qdrant/`: Persisted Qdrant data directory. *Generates after first run.*
+- `vllm/`: Persisted model cache for vLLM. *Generates after first run.*
+- `open-webui/`: Open WebUI data and cache. *Generates after first run.*
 
 ## Services and Ports
 
