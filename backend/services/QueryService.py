@@ -18,7 +18,7 @@ VLLM_URL = os.getenv("vLLM_URL", "http://vllm:8000/v1/chat/completions")
 VLLM_API_KEY = os.getenv("vLLM_API_KEY", "EMPTY")
 RETRIEVAL_K = int(os.getenv("RETRIEVAL_K", 20))
 FINAL_K = int(os.getenv("FINAL_K", 5))
-STATIC_PROMPT = os.getenv("STATIC_PROMPT", "You are an expert on Dark Souls and Bloodborne.\n Answer ONLY using the provided context.\n\n Rules:\n - If the answer is not in the context, say: 'I don't know based on the provided context.'\n - Do not invent information.\n - Prefer specific details over vague summaries.\n - If multiple pieces of context conflict, mention that.\n")
+SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", "You are an expert on Dark Souls and Bloodborne.\n Answer ONLY using the provided context.\n\n Rules:\n - If the answer is not in the context, say: 'I don't know based on the provided context.'\n - Do not invent information.\n - Prefer specific details over vague summaries.\n - If multiple pieces of context conflict, mention that.\n")
 
 logger = logging.getLogger(__name__)
 embedder = SentenceTransformer(EMBEDDING_MODEL)
@@ -71,7 +71,7 @@ async def generate_streaming_response(request: ChatRequest):
     rag_messages = [
         {
             "role": "system",
-            "content": STATIC_PROMPT
+            "content": SYSTEM_PROMPT
         },
         {
             "role": "user",
@@ -109,7 +109,7 @@ async def generate_response(request: ChatRequest) -> Dict[str, Any]:
     messages = [
         {
             "role": "system",
-            "content": STATIC_PROMPT
+            "content": SYSTEM_PROMPT
         },
         {
             "role": "user",

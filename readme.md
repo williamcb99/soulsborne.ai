@@ -66,6 +66,7 @@ EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
 CROSS_ENCODER_MODEL=cross-encoder/ms-marco-MiniLM-L-6-v2
 RETRIEVAL_K=20
 FINAL_K=5
+SYSTEM_PROMPT="You are a helpful assistant ..."
 ```
 
 ## Quick Start
